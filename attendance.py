@@ -19,7 +19,7 @@ dialog_text='Are you sure want to close?'
 window.configure(background='white')
 window.grid_rowconfigure(0,weight=1)
 window.grid_columnconfigure(0,weight=1)
-haarcascadePath='C:\\Users\\patel\\OneDrive\\Documents\\E\\Attendance Management System using Face Recognition\\haarcascade_frontalface_default.xml'
+haarcascadePath='C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\haarcascade_frontalface_default.xml'
 
 message=tk.Label(window,text="Face Recognition Based Attendance Management System",bg='Grey',fg='white',width=50,height=3,font=('times',30,'italic bold underline'))
 message.place(x=65,y=20)
@@ -61,20 +61,8 @@ def clear2():
     txt2.delete(0,'end')
     res=''
     message.configure(text=res)
-def is_numeric(s):
-    try:
-        float(s)
-        return True
-    except ValueError:
-        pass
-    try:
-        import unicodedata
-        unicodedata.numeric(s)
-        return True
-    except (TypeError,ValueError):
-        pass
-
-    return False
+def del_sc1():
+    sc1.destroy()
 def err_screen():
     global sc1
     sc1 = tk.Tk()
@@ -82,8 +70,8 @@ def err_screen():
     sc1.iconbitmap('AMS.ico')
     sc1.title('Warning!!')
     sc1.configure(background='snow')
-    Label(sc1,text='Enrollment & Name required!!!',fg='red',bg='white',font=('times', 16, ' bold ')).pack()
-    Button(sc1,text='OK',command=del_sc1,fg="black"  ,bg="lawn green"  ,width=9  ,height=1, activebackground = "Red" ,font=('times', 15, ' bold ')).place(x=90,y= 50)
+    tk.Label(sc1,text='Enrollment & Name required!!!',fg='red',bg='white',font=('times', 16, ' bold ')).pack()
+    tk.Button(sc1,text='OK',command=del_sc1,fg="black"  ,bg="lawn green"  ,width=9  ,height=1, activebackground = "Red" ,font=('times', 15, ' bold ')).place(x=90,y= 50)
 
 def del_sc2():
     sc2.destroy()
@@ -97,7 +85,7 @@ def err_screen1():
     tk.Label(sc2,text='Please enter your subject name!!!',fg='red',bg='white',font=('times', 16, ' bold ')).pack()
     tk.Button(sc2,text='OK',command=del_sc2,fg="black"  ,bg="lawn green"  ,width=9  ,height=1, activebackground = "Red" ,font=('times', 15, ' bold ')).place(x=90,y= 50)
 
-#take Image from user
+#take Image of user
 def TakeImage():
     l1=txt1.get()
     l2=txt2.get()
@@ -141,7 +129,6 @@ def TakeImage():
 #Train Image
 def TrainImage():
     recognizer=cv2.face.LBPHFaceRecognizer_create()
-    haarcascadePath='C:\\Users\\patel\\AppData\\Local\\Programs\\Python\\Python37-32\\Lib\\site-packages\\cv2\\data\\haarcascade_frontalface_default.xml'
     detector=cv2.CascadeClassifier(haarcascadePath)
     faces,Id=getImagesAndLables("TrainingImage")
     recognizer.train(faces,np.array(Id))
@@ -231,7 +218,7 @@ def subjectChoose():
                 Hour, Minute, Second = timeStamp.split(":")
                 fileName = "Attendance/" + Subject + "_" + date + "_" + Hour + "-" + Minute + "-" + Second + ".csv"
                 attendance = attendance.drop_duplicates(['Enrollment'], keep='first')
-                #print(attendance)
+                print(attendance)
                 attendance.to_csv(fileName, index=False)
 
                 m='Attendance Filled Successfully'
@@ -247,7 +234,7 @@ def subjectChoose():
                 root = tkinter.Tk()
                 root.title("Attendance of " + Subject)
                 root.configure(background='snow')
-                cs = 'C:\\Users\\patel\\OneDrive\\Documents\\E\\Attendance Management System using Face Recognition\\' + fileName
+                cs = 'C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\' + fileName
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -261,7 +248,7 @@ def subjectChoose():
                             c += 1
                         r += 1
                 root.mainloop()
-                #print(attendance)
+                print(attendance)
 
 
                 
@@ -276,7 +263,7 @@ def subjectChoose():
 
     def Attf():
         import subprocess
-        subprocess.Popen(r'explorer \\select,"C:\\Users\\patel\\OneDrive\Documents\\E\\Attendance Management System using Face Recognition\\"')
+        subprocess.Popen(r'explorer \\select,"C:\\Users\\patel\\OneDrive\Documents\\E\\FBAS\\"')
 
     attf = tk.Button(windo,  text="Check Sheets",command=Attf,fg="black"  ,bg="lawn green"  ,width=12  ,height=1 ,activebackground = "Red" ,font=('times', 14, ' bold '))
     attf.place(x=430, y=255)
@@ -313,7 +300,7 @@ def admin_panel():
                 root.title("Student Details")
                 root.configure(background='snow')
 
-                cs = 'C:\\Users\\patel\\OneDrive\\Documents\\E\\Attendance Management System using Face Recognition\\StudentDetails\\studentdetails.csv'
+                cs = 'C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\StudentDetails\\studentdetails.csv'
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -330,13 +317,13 @@ def admin_panel():
                 root.mainloop()
             else:
                 valid = 'Incorrect ID or Password'
-                Nt.configure(text=valid, bg="red", fg="black", width=38, font=('times', 19, 'bold'))
-                Nt.place(x=120, y=350)
+                message.configure(text=valid, bg="red", fg="black", width=38, font=('times', 19, 'bold'))
+                message.place(x=120, y=350)
 
         else:
             valid ='Incorrect ID or Password'
-            Nt.configure(text=valid, bg="red", fg="black", width=38, font=('times', 19, 'bold'))
-            Nt.place(x=120, y=350)
+            message.configure(text=valid, bg="red", fg="black", width=38, font=('times', 19, 'bold'))
+            message.place(x=120, y=350)
 
 
 #clear Button
