@@ -1,0 +1,11 @@
+---Code Requirements---
+Python 3.6+
+Opencv(pip install opencv-python)
+Tkinter(Available in python)
+PIL (pip install Pillow)
+Pandas(pip install pandas)
+Numpy(pip install numpy)
+
+--Notes--
+It will require high processing power(I have 8 GB RAM & 1 GB Nvidia GT740M Graphic Card)
+Noisy image can reduce your accuracy so quality of images matter.
