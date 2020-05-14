@@ -1,8 +1,10 @@
-from firebase import firebase
-firebase = firebase.FirebaseApplication('https://face-attendance-211a7.firebaseio.com/', None)  
-data =  { 'Name': 'rahul',  
-          'RollNo': 1,  
-          'Percentage': 76.02  
-          }  
-result = firebase.post('/face-attendance-211a7/studnet',data)  
-print(result)  
+import os
+
+path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImage"
+
+# imagePath = [os.path.join(path, f) for f in os.listdir(path)]
+for d in os.listdir(path):
+    newdir = os.path.join(path, d)
+    print(newdir)
+    imagePath = [os.path.join(newdir, f) for f in os.listdir(newdir)]
+print(imagePath)

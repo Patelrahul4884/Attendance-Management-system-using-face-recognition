@@ -10,9 +10,18 @@ import datetime
 import time
 import tkinter.ttk as tkk
 import tkinter.font as font
+import show_attendance
 
-# from firebase import firebase
-# firebase = firebase.FirebaseApplication('https://face-attendance-211a7.firebaseio.com/', None)
+haarcasecade_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\haarcascade_frontalface_default.xml"
+trainimagelabel_path = (
+    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImageLabel\\Trainner.yml"
+)
+trainimage_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImage"
+studentdetail_path = (
+    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\StudentDetails\\studentdetails.csv"
+)
+attendance_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance"
+
 window = tk.Tk()
 window.title("Face recognizer")
 window.geometry("1024x768")
@@ -21,7 +30,7 @@ dialog_text = "Are you sure want to close?"
 window.configure(background="white")
 window.grid_rowconfigure(0, weight=1)
 window.grid_columnconfigure(0, weight=1)
-haarcascadePath = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\haarcascade_frontalface_default.xml"
+
 
 ####GUI for manually fill attendance
 
@@ -549,10 +558,13 @@ def TakeImage():
     else:
         try:
             cam = cv2.VideoCapture(0)
-            detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+            detector = cv2.CascadeClassifier(haarcasecade_path)
             Enrollment = l1
             Name = l2
             sampleNum = 0
+            directory = Enrollment + "_" + Name
+            path = os.path.join(trainimage_path, directory)
+            os.mkdir(path)
             while True:
                 ret, img = cam.read()
                 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -561,7 +573,7 @@ def TakeImage():
                     cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
                     sampleNum = sampleNum + 1
                     cv2.imwrite(
-                        f"TrainingImage\ "
+                        f"{path}\ "
                         + Name
                         + "_"
                         + Enrollment
@@ -578,30 +590,39 @@ def TakeImage():
             cam.release()
             cv2.destroyAllWindows()
             row = [Enrollment, Name]
-            with open("StudentDetails\studentdetails.csv", "a+") as csvFile:
+            with open(
+                "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\StudentDetails\\studentdetails.csv",
+                "a+",
+            ) as csvFile:
                 writer = csv.writer(csvFile, delimiter=",")
                 writer.writerow(row)
                 csvFile.close()
             res = "Images Saved for Enrollment : " + Enrollment + " Name : " + Name
             message.configure(text=res)
         except FileExistsError as F:
-            f = "Student Data already exists"
-            message.configure(text=f)
+            F = "Student Data already exists"
+            message.configure(text=F)
 
 
 # Train Image
 def TrainImage():
     recognizer = cv2.face.LBPHFaceRecognizer_create()
-    detector = cv2.CascadeClassifier(haarcascadePath)
-    faces, Id = getImagesAndLables("TrainingImage")
+    detector = cv2.CascadeClassifier(haarcasecade_path)
+    faces, Id = getImagesAndLables(trainimage_path)
     recognizer.train(faces, np.array(Id))
-    recognizer.save("TrainingImageLabel\Trainner.yml")
+    recognizer.save(trainimagelabel_path)
     res = "Image Trained"  # +",".join(str(f) for f in Id)
     message.configure(text=res)
 
 
 def getImagesAndLables(path):
-    imagePath = [os.path.join(path, f) for f in os.listdir(path)]
+    # imagePath = [os.path.join(path, f) for d in os.listdir(path) for f in d]
+    newdir = [os.path.join(path, d) for d in os.listdir(path)]
+    imagePath = [
+        os.path.join(newdir[i], f) for i in range(len(newdir)) for f in os.listdir(newdir[i])
+    ]
+    print(newdir)
+    print(imagePath)
     faces = []
     Ids = []
     for imagePath in imagePath:
@@ -671,7 +692,7 @@ def subjectChoose():
             else:
                 recognizer = cv2.face.LBPHFaceRecognizer_create()
                 try:
-                    recognizer.read("TrainingImageLabel\Trainner.yml")
+                    recognizer.read(trainimagelabel_path)
                 except:
                     e = "Model not found,please train model"
                     Notifica.configure(
@@ -682,8 +703,8 @@ def subjectChoose():
                         font=("times", 15, "bold"),
                     )
                     Notifica.place(x=20, y=250)
-                facecasCade = cv2.CascadeClassifier(haarcascadePath)
-                df = pd.read_csv("StudentDetails\studentdetails.csv")
+                facecasCade = cv2.CascadeClassifier(haarcasecade_path)
+                df = pd.read_csv(studentdetail_path)
                 cam = cv2.VideoCapture(0)
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 col_names = ["Enrollment", "Name"]
@@ -749,8 +770,9 @@ def subjectChoose():
                 timeStamp = datetime.datetime.fromtimestamp(ts).strftime("%H:%M:%S")
                 Hour, Minute, Second = timeStamp.split(":")
                 # fileName = "Attendance/" + Subject + ".csv"
+                path = os.path.join(attendance_path, Subject)
                 fileName = (
-                    "Attendance/"
+                    f"{path}/"
                     + Subject
                     + "_"
                     + date
@@ -781,7 +803,8 @@ def subjectChoose():
                 root = tkinter.Tk()
                 root.title("Attendance of " + Subject)
                 root.configure(background="snow")
-                cs = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\" + fileName
+                cs = os.path.join(path, fileName)
+                print(cs)
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -808,7 +831,7 @@ def subjectChoose():
 
     ###windo is frame for subject chooser
     windo = tk.Tk()
-    windo.iconbitmap("AMS.ico")
+    # windo.iconbitmap("AMS.ico")
     windo.title("Enter subject name...")
     windo.geometry("580x320")
     windo.configure(background="snow")
@@ -1084,6 +1107,24 @@ trackImg = tk.Button(
     font=("times", 15, "bold"),
 )
 trackImg.place(x=750, y=450)
+
+
+def view_attendance():
+    show_attendance.subjectchoose()
+
+
+trackImg = tk.Button(
+    window,
+    text="View Attendance",
+    command=view_attendance,
+    fg="white",
+    bg="Grey",
+    width=17,
+    height=3,
+    activebackground="Black",
+    font=("times", 15, "bold"),
+)
+trackImg.place(x=1020, y=450)
 
 trackImg = tk.Button(
     window,
