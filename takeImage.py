@@ -6,12 +6,18 @@ import datetime
 import time
 
 
+
 # take Image of user
-def TakeImage(l1, l2, haarcasecade_path, trainimage_path, message, err_screen):
-    if l1 == "":
-        err_screen()
+def TakeImage(l1, l2, haarcasecade_path, trainimage_path, message, err_screen,text_to_speech):
+    if (l1 == "") and (l2==""):
+        t='Please Enter the your Enrollment Number and Name.'
+        text_to_speech(t)
+    elif l1=='':
+        t='Please Enter the your Enrollment Number.'
+        text_to_speech(t)
     elif l2 == "":
-        err_screen()
+        t='Please Enter the your Name.'
+        text_to_speech(t)
     else:
         try:
             cam = cv2.VideoCapture(0)
@@ -37,12 +43,12 @@ def TakeImage(l1, l2, haarcasecade_path, trainimage_path, message, err_screen):
                         + "_"
                         + str(sampleNum)
                         + ".jpg",
-                        gray[y : y + h, x : x + w],
+                        img[y : y + h, x : x + w],
                     )
                     cv2.imshow("Frame", img)
                 if cv2.waitKey(1) & 0xFF == ord("q"):
                     break
-                elif sampleNum > 70:
+                elif sampleNum > 50:
                     break
             cam.release()
             cv2.destroyAllWindows()
@@ -54,8 +60,9 @@ def TakeImage(l1, l2, haarcasecade_path, trainimage_path, message, err_screen):
                 writer = csv.writer(csvFile, delimiter=",")
                 writer.writerow(row)
                 csvFile.close()
-            res = "Images Saved for Enrollment : " + Enrollment + " Name : " + Name
+            res = "Images Saved for ER No:" + Enrollment + " Name:" + Name
             message.configure(text=res)
+            text_to_speech(res)
         except FileExistsError as F:
             F = "Student Data already exists"
-            message.configure(text=F)
+            text_to_speech(F)

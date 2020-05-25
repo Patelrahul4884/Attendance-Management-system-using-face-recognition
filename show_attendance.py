@@ -4,11 +4,14 @@ import os
 import tkinter
 import csv
 import tkinter as tk
+from tkinter import *
 
-
-def subjectchoose():
+def subjectchoose(text_to_speech):
     def calculate_attendance():
         Subject = tx.get()
+        if Subject=="":
+            t='Please enter the subject name.'
+            text_to_speech(t)
         os.chdir(
             f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{Subject}"
         )
@@ -27,7 +30,7 @@ def subjectchoose():
 
         root = tkinter.Tk()
         root.title("Attendance of python ")
-        root.configure(background="snow")
+        root.configure(background="black")
         cs = f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{Subject}\\attendance.csv"
         with open(cs) as file:
             reader = csv.reader(file)
@@ -41,9 +44,9 @@ def subjectchoose():
                         root,
                         width=10,
                         height=1,
-                        fg="black",
+                        fg="yellow",
                         font=("times", 15, " bold "),
-                        bg="lawn green",
+                        bg="black",
                         text=row,
                         relief=tkinter.RIDGE,
                     )
@@ -53,66 +56,88 @@ def subjectchoose():
         root.mainloop()
         print(newdf)
 
-    ###windo is frame for subject chooser
-    windo = tk.Tk()
+    subject = Tk()
     # windo.iconbitmap("AMS.ico")
-    windo.title("Enter subject name...")
-    windo.geometry("580x320")
-    windo.configure(background="snow")
-    Notifica = tk.Label(
-        windo,
-        text="Attendance filled Successfully",
-        bg="grey",
-        fg="white",
-        width=33,
-        height=2,
-        font=("times", 15, "bold"),
+    subject.title("Subject...")
+    subject.geometry("580x320")
+    subject.resizable(0, 0)
+    subject.configure(background="black")
+    # subject_logo = Image.open("UI_Image/0004.png")
+    # subject_logo = subject_logo.resize((50, 47), Image.ANTIALIAS)
+    # subject_logo1 = ImageTk.PhotoImage(subject_logo)
+    titl = tk.Label(subject, bg="black", relief=RIDGE, bd=10, font=("arial", 30))
+    titl.pack(fill=X)
+    # l1 = tk.Label(subject, image=subject_logo1, bg="black",)
+    # l1.place(x=100, y=10)
+    titl = tk.Label(
+        subject,
+        text="Which Subject of Attendance?",
+        bg="black",
+        fg="green",
+        font=("arial", 25),
     )
+    titl.place(x=100, y=12)
 
     def Attf():
-        import subprocess
+        sub = tx.get()
+        if sub == "":
+            t="Please enter the subject name!!!"
+            text_to_speech(t)
+        else:
+            os.startfile(
+            f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{sub}"
+            )
 
-        subprocess.Popen(
-            r'explorer \\select,"C:\\Users\\patel\\OneDrive\Documents\\E\\FBAS\\"'
-        )
 
     attf = tk.Button(
-        windo,
+        subject,
         text="Check Sheets",
         command=Attf,
-        fg="white",
-        bg="grey",
-        width=12,
-        height=1,
-        activebackground="Red",
-        font=("times", 14, " bold "),
+        bd=7,
+        font=("times new roman", 15),
+        bg="black",
+        fg="yellow",
+        height=2,
+        width=10,
+        relief=RIDGE,
     )
-    attf.place(x=430, y=255)
+    attf.place(x=360, y=170)
 
     sub = tk.Label(
-        windo,
+        subject,
         text="Enter Subject",
-        width=15,
+        width=10,
         height=2,
-        fg="white",
-        bg="grey",
-        font=("times", 15, " bold "),
+        bg="black",
+        fg="yellow",
+        bd=5,
+        relief=RIDGE,
+        font=("times new roman", 15),
     )
-    sub.place(x=30, y=100)
+    sub.place(x=50, y=100)
 
-    tx = tk.Entry(windo, width=20, bg="grey", fg="white", font=("times", 23, " bold "))
-    tx.place(x=250, y=105)
+    tx = tk.Entry(
+        subject,
+        width=15,
+        bd=5,
+        bg="black",
+        fg="yellow",
+        relief=RIDGE,
+        font=("times", 30, "bold"),
+    )
+    tx.place(x=190, y=100)
 
     fill_a = tk.Button(
-        windo,
+        subject,
         text="View Attendance",
-        fg="white",
         command=calculate_attendance,
-        bg="grey",
-        width=20,
+        bd=7,
+        font=("times new roman", 15),
+        bg="black",
+        fg="yellow",
         height=2,
-        activebackground="Red",
-        font=("times", 15, " bold "),
+        width=12,
+        relief=RIDGE,
     )
-    fill_a.place(x=250, y=160)
-    windo.mainloop()
+    fill_a.place(x=195, y=170)
+    subject.mainloop()
