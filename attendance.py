@@ -52,6 +52,7 @@ window.configure(background="black")
 def del_sc1():
     sc1.destroy()
 
+
 # error message for name and no
 def err_screen():
     global sc1
@@ -79,7 +80,6 @@ def err_screen():
         activebackground="Red",
         font=("times", 20, " bold "),
     ).place(x=110, y=50)
-
 
 
 def testVal(inStr, acttyp):
@@ -154,7 +154,7 @@ def TakeImageUI():
         bd=10,
         font=("arial", 24),
     )
-    a.place(x=280,y=75)
+    a.place(x=280, y=75)
 
     # ER no
     lbl1 = tk.Label(
@@ -288,8 +288,6 @@ def TakeImageUI():
     trainImg.place(x=360, y=350)
 
 
-
-
 r = tk.Button(
     window,
     text="Register a new student",
@@ -303,8 +301,10 @@ r = tk.Button(
 )
 r.place(x=100, y=520)
 
+
 def automatic_attedance():
     automaticAttedance.subjectChoose(text_to_speech)
+
 
 r = tk.Button(
     window,
@@ -315,11 +315,15 @@ r = tk.Button(
     bg="black",
     fg="yellow",
     height=2,
-    width=17
+    width=17,
 )
 r.place(x=600, y=520)
+
+
 def view_attendance():
     show_attendance.subjectchoose(text_to_speech)
+
+
 r = tk.Button(
     window,
     text="View Attendance",
@@ -329,7 +333,7 @@ r = tk.Button(
     bg="black",
     fg="yellow",
     height=2,
-    width=17
+    width=17,
 )
 r.place(x=1000, y=520)
 r = tk.Button(

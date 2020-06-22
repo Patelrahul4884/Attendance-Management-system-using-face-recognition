@@ -43,7 +43,7 @@ def TakeImage(l1, l2, haarcasecade_path, trainimage_path, message, err_screen,te
                         + "_"
                         + str(sampleNum)
                         + ".jpg",
-                        img[y : y + h, x : x + w],
+                        gray[y : y + h, x : x + w],
                     )
                     cv2.imshow("Frame", img)
                 if cv2.waitKey(1) & 0xFF == ord("q"):

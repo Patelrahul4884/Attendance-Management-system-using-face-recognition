@@ -25,11 +25,12 @@ def subjectchoose(text_to_speech):
         newdf.fillna(0, inplace=True)
         newdf["Attendance"] = 0
         for i in range(len(newdf)):
-            newdf["Attendance"].iloc[i] = newdf.iloc[i, 2:-1].mean() * 100
+            newdf["Attendance"].iloc[i] = str(int(round(newdf.iloc[i, 2:-1].mean() * 100)))+'%'
+            #newdf.sort_values(by=['Enrollment'],inplace=True)
         newdf.to_csv("attendance.csv", index=False)
 
         root = tkinter.Tk()
-        root.title("Attendance of python ")
+        root.title("Attendance of "+Subject)
         root.configure(background="black")
         cs = f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{Subject}\\attendance.csv"
         with open(cs) as file:
