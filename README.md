@@ -5,7 +5,10 @@
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/) 
 
 ### What steps you have to follow??
+
 - Download or clone my Repository to your device
+- (Recommended) Create a Python virtual environment:
+You can follow the [Python official documentation](https://docs.python.org/3/tutorial/venv.html) for virtual environments .
 - type `pip install -r requirements.txt` in command prompt(this will install required package for project)
 - Create a `TrainingImage` folder in a project folder.
 - open `attendance.py` and `automaticAttendance.py`, change all the path accoriding to your system
