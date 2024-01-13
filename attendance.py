@@ -29,15 +29,15 @@ def text_to_speech(user_text):
     engine.runAndWait()
 
 
-haarcasecade_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\haarcascade_frontalface_default.xml"
+haarcasecade_path = "C:\Users\HP\Documents\GitHub\Attendance-Management-system-using-face-recognition\haarcascade_frontalface_default.xml"
 trainimagelabel_path = (
-    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImageLabel\\Trainner.yml"
+    "C:\Users\HP\Documents\GitHub\Attendance-Management-system-using-face-recognition\TrainingImageLabel\Trainner.yml"
 )
-trainimage_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImage"
+trainimage_path = "C:\Users\HP\Documents\GitHub\Attendance-Management-system-using-face-recognition\TrainingImage"
 studentdetail_path = (
-    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\StudentDetails\\studentdetails.csv"
+    "CC:\Users\HP\Documents\GitHub\Attendance-Management-system-using-face-recognition\StudentDetails\studentdetails.csv"
 )
-attendance_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance"
+attendance_path = "C:\Users\HP\Documents\GitHub\Attendance-Management-system-using-face-recognition\AttendanceDocs"
 
 
 window = Tk()
@@ -98,7 +98,7 @@ l1 = tk.Label(window, image=logo1, bg="black",)
 l1.place(x=470, y=10)
 
 titl = tk.Label(
-    window, text="Smart College!!", bg="black", fg="green", font=("arial", 27),
+    window, text="AMS Smart HighSchool", bg="black", fg="green", font=("arial", 27),
 )
 titl.place(x=525, y=12)
 
