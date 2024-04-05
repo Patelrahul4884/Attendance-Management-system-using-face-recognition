@@ -182,7 +182,7 @@ def manually_fill():
             def create_csv():
                 df = pd.DataFrame(d)
                 csv_name = (
-                    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance(Manually)\\"
+                    "Attendance(Manually)/"
                     + subb
                     + "_"
                     + Date
