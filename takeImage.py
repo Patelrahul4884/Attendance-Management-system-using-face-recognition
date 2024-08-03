@@ -54,7 +54,7 @@ def TakeImage(l1, l2, haarcasecade_path, trainimage_path, message, err_screen,te
             cv2.destroyAllWindows()
             row = [Enrollment, Name]
             with open(
-                "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\StudentDetails\\studentdetails.csv",
+                "StudentDetails/studentdetails.csv",
                 "a+",
             ) as csvFile:
                 writer = csv.writer(csvFile, delimiter=",")

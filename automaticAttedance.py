@@ -11,15 +11,15 @@ import time
 import tkinter.ttk as tkk
 import tkinter.font as font
 
-haarcasecade_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\haarcascade_frontalface_default.xml"
+haarcasecade_path = "haarcascade_frontalface_default.xml"
 trainimagelabel_path = (
-    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImageLabel\\Trainner.yml"
+    "TrainingImageLabel\\Trainner.yml"
 )
-trainimage_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\TrainingImage"
+trainimage_path = "TrainingImage"
 studentdetail_path = (
-    "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\StudentDetails\\studentdetails.csv"
+    "StudentDetails\\studentdetails.csv"
 )
-attendance_path = "C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance"
+attendance_path = "Attendance"
 # for choose subject and fill attendance
 def subjectChoose(text_to_speech):
     def FillAttendance():
@@ -224,7 +224,7 @@ def subjectChoose(text_to_speech):
             text_to_speech(t)
         else:
             os.startfile(
-                f"C:\\Users\\patel\\OneDrive\\Documents\\E\\FBAS\\Attendance\\{sub}"
+                f"Attendance\\{sub}"
             )
 
     attf = tk.Button(
