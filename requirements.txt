@@ -1,0 +1,9 @@
+numpy==1.16.1
+opencv-contrib-python==4.2.0.84
+opencv-python==4.2.0.84
+openpyxl==3.1.5
+pandas==2.2.3
+pillow==11.0.0
+pyttsx3==2.71
+
+
