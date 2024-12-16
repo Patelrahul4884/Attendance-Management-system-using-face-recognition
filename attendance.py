@@ -1,6 +1,8 @@
+
 import tkinter as tk
 from tkinter import *
-import os, cv2
+import os
+import cv2
 import shutil
 import csv
 import numpy as np
@@ -22,26 +24,22 @@ import automaticAttedance
 # engine.say("Please browse through your options..")
 # engine.runAndWait()
 
-
 def text_to_speech(user_text):
     engine = pyttsx3.init()
     engine.say(user_text)
     engine.runAndWait()
 
+# Update paths with os.path.join for better portability
+project_dir = os.path.dirname(os.path.abspath(__file__))  # Current directory of the script
+haarcasecade_path = os.path.join(project_dir, "haarcascade_frontalface_default.xml")
+trainimagelabel_path = os.path.join(project_dir, "TrainingImageLabel", "Trainner.yml")
+trainimage_path = os.path.join(project_dir, "TrainingImage")
+studentdetail_path = os.path.join(project_dir, "StudentDetails", "studentdetails.csv")
+attendance_path = os.path.join(project_dir, "Attendance")
 
-haarcasecade_path = "haarcascade_frontalface_default.xml"
-trainimagelabel_path = (
-    "/TrainingImageLabel/Trainner.yml"
-)
-trainimage_path = "TrainingImage"
+# Ensure training images folder exists
 if not os.path.exists(trainimage_path):
     os.makedirs(trainimage_path)
-
-studentdetail_path = (
-    "/StudentDetails/studentdetails.csv"
-)
-attendance_path = "Attendance"
-
 
 window = Tk()
 window.title("Face recognizer")
@@ -92,7 +90,7 @@ def testVal(inStr, acttyp):
     return True
 
 
-logo = Image.open("UI_Image/0001.png")
+logo = Image.open(os.path.join(project_dir, "UI_Image", "0001.png"))
 logo = logo.resize((50, 47), Image.Resampling.LANCZOS)
 logo1 = ImageTk.PhotoImage(logo)
 titl = tk.Label(window, bg="black", relief=RIDGE, bd=10, font=("arial", 35))
@@ -101,7 +99,7 @@ l1 = tk.Label(window, image=logo1, bg="black",)
 l1.place(x=470, y=10)
 
 titl = tk.Label(
-    window, text="Smart College!!", bg="black", fg="green", font=("arial", 27),
+    window, text="    L N C T", bg="White", fg="orange", font=("arial", 27),
 )
 titl.place(x=525, y=12)
 
@@ -115,19 +113,19 @@ a = tk.Label(
 )
 a.pack()
 
-ri = Image.open("UI_Image/register.png")
+ri = Image.open(os.path.join(project_dir, "UI_Image", "register.png"))
 r = ImageTk.PhotoImage(ri)
 label1 = Label(window, image=r)
 label1.image = r
 label1.place(x=100, y=270)
 
-ai = Image.open("UI_Image/attendance.png")
+ai = Image.open(os.path.join(project_dir, "UI_Image", "attendance.png"))
 a = ImageTk.PhotoImage(ai)
 label2 = Label(window, image=a)
 label2.image = a
 label2.place(x=980, y=270)
 
-vi = Image.open("UI_Image/verifyy.png")
+vi = Image.open(os.path.join(project_dir, "UI_Image", "verifyy.png"))
 v = ImageTk.PhotoImage(vi)
 label3 = Label(window, image=v)
 label3.image = v
@@ -339,6 +337,7 @@ r = tk.Button(
     width=17,
 )
 r.place(x=1000, y=520)
+
 r = tk.Button(
     window,
     text="EXIT",
