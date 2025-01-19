@@ -115,6 +115,8 @@ def subjectChoose(text_to_speech):
                 Hour, Minute, Second = timeStamp.split(":")
                 # fileName = "Attendance/" + Subject + ".csv"
                 path = os.path.join(attendance_path, Subject)
+                if not os.path.exists(path):
+                    os.makedirs(path)
                 fileName = (
                     f"{path}/"
                     + Subject
