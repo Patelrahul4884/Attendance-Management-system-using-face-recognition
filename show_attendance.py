@@ -12,9 +12,7 @@ def subjectchoose(text_to_speech):
         if Subject=="":
             t='Please enter the subject name.'
             text_to_speech(t)
-        os.chdir(
-            f"Attendance\\{Subject}"
-        )
+    
         filenames = glob(
             f"Attendance\\{Subject}\\{Subject}*.csv"
         )
@@ -27,7 +25,7 @@ def subjectchoose(text_to_speech):
         for i in range(len(newdf)):
             newdf["Attendance"].iloc[i] = str(int(round(newdf.iloc[i, 2:-1].mean() * 100)))+'%'
             #newdf.sort_values(by=['Enrollment'],inplace=True)
-        newdf.to_csv("attendance.csv", index=False)
+        newdf.to_csv(f"Attendance\\{Subject}\\attendance.csv", index=False)
 
         root = tkinter.Tk()
         root.title("Attendance of "+Subject)
