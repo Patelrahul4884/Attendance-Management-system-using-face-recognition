@@ -1,7 +1,5 @@
-numpy
-opencv-contrib-python
-opencv-python
-openpyxl
-pandas
-pillow
-pyttsx3
+opencv-python==4.5.5.62
+numpy==1.23.5
+pandas==1.5.3
+Pillow==9.5.0
+face-recognition==1.3.0
