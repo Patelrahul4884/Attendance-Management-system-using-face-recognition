@@ -1,0 +1,49 @@
+Day,Period,Time,Subject,Type
+Monday,1,09:00 - 10:00,Math,regular
+Monday,BREAK1,10:00 - 10:15,Short Break,short_break
+Monday,2,10:15 - 11:15,Physics,regular
+Monday,BREAK2,11:15 - 11:30,Short Break,short_break
+Monday,3,11:30 - 12:30,Chemistry,regular
+Monday,4,12:30 - 13:30,English,regular
+Monday,5,13:30 - 14:30,CS,regular
+Monday,6,14:30 - 15:30,Break,regular
+Tuesday,1,09:00 - 10:00,Math,regular
+Tuesday,BREAK1,10:00 - 10:15,Short Break,short_break
+Tuesday,2,10:15 - 11:15,Physics,regular
+Tuesday,BREAK2,11:15 - 11:30,Short Break,short_break
+Tuesday,3,11:30 - 12:30,Chemistry,regular
+Tuesday,4,12:30 - 13:30,English,regular
+Tuesday,5,13:30 - 14:30,CS,regular
+Tuesday,6,14:30 - 15:30,Break,regular
+Wednesday,1,09:00 - 10:00,Math,regular
+Wednesday,BREAK1,10:00 - 10:15,Short Break,short_break
+Wednesday,2,10:15 - 11:15,Physics,regular
+Wednesday,BREAK2,11:15 - 11:30,Short Break,short_break
+Wednesday,3,11:30 - 12:30,Chemistry,regular
+Wednesday,4,12:30 - 13:30,English,regular
+Wednesday,5,13:30 - 14:30,CS,regular
+Wednesday,6,14:30 - 15:30,Break,regular
+Thursday,1,09:00 - 10:00,Math,regular
+Thursday,BREAK1,10:00 - 10:15,Short Break,short_break
+Thursday,2,10:15 - 11:15,Physics,regular
+Thursday,BREAK2,11:15 - 11:30,Short Break,short_break
+Thursday,3,11:30 - 12:30,Chemistry,regular
+Thursday,4,12:30 - 13:30,English,regular
+Thursday,5,13:30 - 14:30,CS,regular
+Thursday,6,14:30 - 15:30,Break,regular
+Friday,1,09:00 - 10:00,Math,regular
+Friday,BREAK1,10:00 - 10:15,Short Break,short_break
+Friday,2,10:15 - 11:15,Physics,regular
+Friday,BREAK2,11:15 - 11:30,Short Break,short_break
+Friday,3,11:30 - 12:30,Chemistry,regular
+Friday,4,12:30 - 13:30,English,regular
+Friday,5,13:30 - 14:30,CS,regular
+Friday,6,14:30 - 15:30,Break,regular
+Saturday,1,09:00 - 10:00,Math,regular
+Saturday,BREAK1,10:00 - 10:15,Short Break,short_break
+Saturday,2,10:15 - 11:15,Physics,regular
+Saturday,BREAK2,11:15 - 11:30,Short Break,short_break
+Saturday,3,11:30 - 12:30,Chemistry,regular
+Saturday,4,12:30 - 13:30,English,regular
+Saturday,5,13:30 - 14:30,CS,regular
+Saturday,6,14:30 - 15:30,Break,regular

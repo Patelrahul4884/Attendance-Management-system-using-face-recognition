@@ -339,6 +339,25 @@ r = tk.Button(
     width=17,
 )
 r.place(x=1000, y=520)
+
+# Timetable Generator Button
+def open_timetable_generator():
+    import timetable_generator
+    timetable_generator.create_timetable_generator()
+
+r = tk.Button(
+    window,
+    text="Timetable Generator",
+    command=open_timetable_generator,
+    bd=10,
+    font=("Verdana", 16),
+    bg="black",
+    fg="yellow",
+    height=2,
+    width=17,
+)
+r.place(x=600, y=590)
+
 r = tk.Button(
     window,
     text="EXIT",

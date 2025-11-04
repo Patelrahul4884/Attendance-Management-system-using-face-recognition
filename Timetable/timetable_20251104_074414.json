@@ -1,0 +1,302 @@
+{
+    "Monday": [
+        {
+            "period": 1,
+            "time": "09:00 - 10:00",
+            "subject": "Math",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK1",
+            "time": "10:00 - 10:15",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 2,
+            "time": "10:15 - 11:15",
+            "subject": "Physics",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK2",
+            "time": "11:15 - 11:30",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 3,
+            "time": "11:30 - 12:30",
+            "subject": "Chemistry",
+            "type": "regular"
+        },
+        {
+            "period": 4,
+            "time": "12:30 - 13:30",
+            "subject": "English",
+            "type": "regular"
+        },
+        {
+            "period": 5,
+            "time": "13:30 - 14:30",
+            "subject": "CS",
+            "type": "regular"
+        },
+        {
+            "period": 6,
+            "time": "14:30 - 15:30",
+            "subject": "Break",
+            "type": "regular"
+        }
+    ],
+    "Tuesday": [
+        {
+            "period": 1,
+            "time": "09:00 - 10:00",
+            "subject": "Math",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK1",
+            "time": "10:00 - 10:15",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 2,
+            "time": "10:15 - 11:15",
+            "subject": "Physics",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK2",
+            "time": "11:15 - 11:30",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 3,
+            "time": "11:30 - 12:30",
+            "subject": "Chemistry",
+            "type": "regular"
+        },
+        {
+            "period": 4,
+            "time": "12:30 - 13:30",
+            "subject": "English",
+            "type": "regular"
+        },
+        {
+            "period": 5,
+            "time": "13:30 - 14:30",
+            "subject": "CS",
+            "type": "regular"
+        },
+        {
+            "period": 6,
+            "time": "14:30 - 15:30",
+            "subject": "Break",
+            "type": "regular"
+        }
+    ],
+    "Wednesday": [
+        {
+            "period": 1,
+            "time": "09:00 - 10:00",
+            "subject": "Math",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK1",
+            "time": "10:00 - 10:15",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 2,
+            "time": "10:15 - 11:15",
+            "subject": "Physics",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK2",
+            "time": "11:15 - 11:30",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 3,
+            "time": "11:30 - 12:30",
+            "subject": "Chemistry",
+            "type": "regular"
+        },
+        {
+            "period": 4,
+            "time": "12:30 - 13:30",
+            "subject": "English",
+            "type": "regular"
+        },
+        {
+            "period": 5,
+            "time": "13:30 - 14:30",
+            "subject": "CS",
+            "type": "regular"
+        },
+        {
+            "period": 6,
+            "time": "14:30 - 15:30",
+            "subject": "Break",
+            "type": "regular"
+        }
+    ],
+    "Thursday": [
+        {
+            "period": 1,
+            "time": "09:00 - 10:00",
+            "subject": "Math",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK1",
+            "time": "10:00 - 10:15",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 2,
+            "time": "10:15 - 11:15",
+            "subject": "Physics",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK2",
+            "time": "11:15 - 11:30",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 3,
+            "time": "11:30 - 12:30",
+            "subject": "Chemistry",
+            "type": "regular"
+        },
+        {
+            "period": 4,
+            "time": "12:30 - 13:30",
+            "subject": "English",
+            "type": "regular"
+        },
+        {
+            "period": 5,
+            "time": "13:30 - 14:30",
+            "subject": "CS",
+            "type": "regular"
+        },
+        {
+            "period": 6,
+            "time": "14:30 - 15:30",
+            "subject": "Break",
+            "type": "regular"
+        }
+    ],
+    "Friday": [
+        {
+            "period": 1,
+            "time": "09:00 - 10:00",
+            "subject": "Math",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK1",
+            "time": "10:00 - 10:15",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 2,
+            "time": "10:15 - 11:15",
+            "subject": "Physics",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK2",
+            "time": "11:15 - 11:30",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 3,
+            "time": "11:30 - 12:30",
+            "subject": "Chemistry",
+            "type": "regular"
+        },
+        {
+            "period": 4,
+            "time": "12:30 - 13:30",
+            "subject": "English",
+            "type": "regular"
+        },
+        {
+            "period": 5,
+            "time": "13:30 - 14:30",
+            "subject": "CS",
+            "type": "regular"
+        },
+        {
+            "period": 6,
+            "time": "14:30 - 15:30",
+            "subject": "Break",
+            "type": "regular"
+        }
+    ],
+    "Saturday": [
+        {
+            "period": 1,
+            "time": "09:00 - 10:00",
+            "subject": "Math",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK1",
+            "time": "10:00 - 10:15",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 2,
+            "time": "10:15 - 11:15",
+            "subject": "Physics",
+            "type": "regular"
+        },
+        {
+            "period": "BREAK2",
+            "time": "11:15 - 11:30",
+            "subject": "Short Break",
+            "type": "short_break"
+        },
+        {
+            "period": 3,
+            "time": "11:30 - 12:30",
+            "subject": "Chemistry",
+            "type": "regular"
+        },
+        {
+            "period": 4,
+            "time": "12:30 - 13:30",
+            "subject": "English",
+            "type": "regular"
+        },
+        {
+            "period": 5,
+            "time": "13:30 - 14:30",
+            "subject": "CS",
+            "type": "regular"
+        },
+        {
+            "period": 6,
+            "time": "14:30 - 15:30",
+            "subject": "Break",
+            "type": "regular"
+        }
+    ]
+}
