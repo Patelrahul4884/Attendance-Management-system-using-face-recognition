@@ -354,3 +354,4 @@ r.place(x=600, y=660)
 
 
 window.mainloop()
+# awhadhklashndkjlhakjldfhsdklsfklasdjfkljasdlkfjaksdljfkl
